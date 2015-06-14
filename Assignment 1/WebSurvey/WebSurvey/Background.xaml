@@ -1,0 +1,132 @@
+﻿<Window x:Class="WebSurvey.Background"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:y="http://schemas.microsoft.com/netfx/2007/xaml/presentation"
+        Title="Background" Height="500" Width="410" ResizeMode="CanResizeWithGrip" Loaded="Window_Loaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border BorderBrush="Red" BorderThickness="10">
+        <Grid Background="WhiteSmoke" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="127*"/>
+                <ColumnDefinition Width="255*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Country Of Origin :" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="12" FontWeight="Bold" FontFamily="sans-serif" Margin="0,16" />
+            <ComboBox Grid.Row="0" Grid.Column="1" Name="tbCountry" Height="24" Margin="0,16,10,16" SelectionChanged="tbCountry_SelectionChanged">
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/India.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        India
+                        </TextBlock>
+                    </StackPanel>
+                 </ComboBoxItem>
+                
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/China.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        China
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/European Union.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        EU
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/Nigeria.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        Nigeria
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/Brazil.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        Brazil
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/Venezuela.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        Venezuela
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/Russian Federation.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        Russian Federation
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/Ukraine.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        Ukraine
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/South Korea.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        South Korea
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/Saudi Arabia.png" Width="18" Height="21" />
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                         Saudi Arabia
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="12" FontWeight="Bold">
+                        Other...
+                        </TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="City :" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="12" FontWeight="Bold" FontFamily="Tahoma" Margin="0,16" />
+            <xctk:WatermarkTextBox Grid.Row="1" Grid.Column="1" Text="{Binding City}" Name="tbCity" Height="24" Watermark="Name of City" Margin="4,33,10,33"/>
+            <TextBlock Grid.Row="2" Grid.Column="0">
+             Education Background  
+            </TextBlock>   
+            <Label Grid.Row="2" Grid.Column="0" Content="Field Of Study :" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="12" FontWeight="Bold" FontFamily="Tahoma" Margin="0,16" />
+            <xctk:WatermarkComboBox Grid.Row="2" Grid.Column="1"  Name="tbfield" Watermark="Field Of Study" Height="24" Margin="0,33,10,33" Text="{Binding FieldOfStudy}" Loaded="Combobox_loaded" SelectedItem="{Binding FieldOfStudy}" SelectionChanged="tbfield_SelectionChanged"/>
+            <TextBlock TextWrapping="WrapWithOverflow" Grid.Row="3" Grid.Column="0" FontFamily="Tahoma" FontSize="12" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">Recent Degree or equivalent completed  :</TextBlock>
+            <xctk:WatermarkTextBox Grid.Row="3" Grid.Column="1" Name="tbDegree" Text="{Binding Qualification}" Watermark="Name of Degree/Equivalent" Height="24" Margin="0,16,10,16"/>
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <Button Name="buttNext2" Width="85" Height="24" Margin="0,20,10,10" Content="Next" Click="btnNext2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Name="buttBack2" Width="85" Height="24" Margin="0,0,10,10" Content="Back" Click="btnBack2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Image Source="images/canada_flag.png" Height="25" Grid.Row="4" Grid.Column="0" ></Image>
+        </Grid>
+    </Border>
+</Window>

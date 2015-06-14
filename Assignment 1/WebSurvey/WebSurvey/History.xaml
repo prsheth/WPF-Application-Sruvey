@@ -1,0 +1,50 @@
+﻿<Window x:Class="WebSurvey.History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="History" Height="500" Width="410" ResizeMode="CanResizeWithGrip" Loaded="Window_Loaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+    <!-- <Window.Resources>
+        <EnumMatchToBooleanConverter x:Key="enumConverter"/>
+    </Window.Resources>-->
+    <Border BorderBrush="Red" BorderThickness="10">
+        <Grid Background="WhiteSmoke" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+           </Grid.ColumnDefinitions>
+            <TextBlock TextWrapping="WrapWithOverflow" FontFamily="sans-serif" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0">What type of difficulties did you face in Canada? :</TextBlock>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0">
+                <CheckBox FontFamily="sans-serif" FontSize="12" FontWeight="Bold" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                 Language
+                </CheckBox>
+                <CheckBox FontFamily="sans-serif" FontSize="12" FontWeight="Bold" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked1">
+                Supplies
+                </CheckBox>
+                <CheckBox FontFamily="sans-serif" FontSize="12" FontWeight="Bold" Checked="CheckBox_Checked_2" Unchecked="CheckBox_Unchecked2">
+                    Accomodation
+                </CheckBox>
+                <CheckBox FontFamily="sans-serif" FontSize="12" FontWeight="Bold" Checked="CheckBox_Checked_3" Unchecked="CheckBox_Unchecked3">
+                    Travel
+                </CheckBox>
+                <CheckBox FontFamily="sans-serif" FontSize="12" FontWeight="Bold" Checked="CheckBox_Checked_4" Unchecked="CheckBox_Unchecked4">
+                    Social Adaptation
+                </CheckBox>
+            </StackPanel>
+            <Label Grid.Row="1" Grid.Column="0" Content="Comments :" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="sans-serif" FontSize="12" FontWeight="Bold"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="tbComments" Height="80" Margin="0,0,10,0" Text="{Binding Comments}" />
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <Button Name="buttSubmit" Width="85" Height="24" Margin="0,20,10,10" Content="Submit" Click="btnSubmit" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Name="buttBack" Width="85" Height="24" Margin="0,0,10,10" Content="Back" Click="btnBack" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Image Source="/images/canada_flag.png" Height="25" Grid.Row="3" Grid.Column="0" ></Image>
+        </Grid>
+    </Border>
+</Window>
